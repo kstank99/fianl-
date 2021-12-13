@@ -1,5 +1,6 @@
 import tkinter as tk
 
+
 LARGE_FONT= ("Verdana", 12)
 class PillTracker(tk.Tk):
 
@@ -30,7 +31,7 @@ class PillTracker(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
-        
+#here we have the hom epage with two buttons to take you where you need to go#     
 class Home(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -46,13 +47,15 @@ class Home(tk.Frame):
                             command=lambda: controller.show_frame(PageTwo))
         button2.pack()
 
-
+#page one is where you go if you want to input the date#
 class PageOne(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         label = tk.Label(self, text="Please enter the date here.", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
+        txtfld=tk.Entry(self, text="This is Entry Widget", bd=5)
+        txtfld.place(x=80, y=150)
 
         button1 = tk.Button(self, text="Back to Home",
                             command=lambda: controller.show_frame(Home))
@@ -60,7 +63,7 @@ class PageOne(tk.Frame):
 
       
 
-
+#at page two you go here to remeber the last date you took a pill#
 class PageTwo(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -81,3 +84,6 @@ class PageTwo(tk.Frame):
 app = PillTracker()
 app.mainloop()
 
+#in all, i bit off more than i could chew wiht this project. i cant get it to take the#
+#input that i want and i have no idea how to make it remeber #
+#once it has been closed#
